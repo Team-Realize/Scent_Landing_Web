@@ -20,54 +20,61 @@
             position: relative;
         }
 
-        img {
+        .background-image {
             display: block;
             border: none;
             width: 100%;
+            height: auto;
         }
 
-        .detail-button {
+        .button {
             position: absolute;
-            top: 75%;
-            left: 12%;
             cursor: pointer;
-            width: 18%;
-        }
-
-        .demo-button {
-            position: absolute;
-            top: 75%;
-            left: 32%;
-            cursor: pointer;
-            width: 18%;
-        }
-
-        .gotop-button {
-            position: absolute;
-            top: 395%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-            width: 12%;
         }
     </style>
 </head>
 <body>
     <div class="scroll-container" id="scrollContainer">
-        <img src="scent 랜딩페이지.jpg" alt="Background Image" />
-
-        <img src="scent 랜딩페이지 자세히 보기 버튼.jpg" class="detail-button" alt="Detail Button" onclick="navigateToDetailPage()" />
-        <img src="scent 랜딩페이지 데모 실행 버튼.jpg" class="demo-button" alt="Demo Button" onclick="navigateToDemoPage()" />
-        
-        <img src="scent 랜딩페이지 위로 가기 버튼.png" class="gotop-button" alt="GoTop Button" onclick="slowScrollToTop()" />
+        <img src="scent 랜딩페이지.jpg" class="background-image" id="backgroundImage" alt="Background Image" />
+        <img src="scent 랜딩페이지 자세히 보기 버튼.jpg" class="button" id="detailButton" alt="Detail Button" onclick="navigateToDetailPage()" />
+        <img src="scent 랜딩페이지 데모 실행 버튼.jpg" class="button" id="demoButton" alt="Demo Button" onclick="navigateToDemoPage()" />
+        <img src="scent 랜딩페이지 위로 가기 버튼.png" class="button" id="gotopButton" alt="GoTop Button" onclick="slowScrollToTop()" />
     </div>
 
     <script>
-        history.pushState(null, null, location.href);
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, location.href);
-        });
-        
+        // 초기 버튼 위치를 설정하는 함수
+        function positionButtons() {
+            const backgroundImage = document.getElementById("backgroundImage");
+            const detailButton = document.getElementById("detailButton");
+            const demoButton = document.getElementById("demoButton");
+            const gotopButton = document.getElementById("gotopButton");
+
+            // 배경 이미지의 크기에 맞춰 버튼 위치를 조정
+            const imageWidth = backgroundImage.clientWidth;
+            const imageHeight = backgroundImage.clientHeight;
+
+            // 비율에 따라 위치 설정
+            detailButton.style.left = (imageWidth * 0.12) + "px";
+            detailButton.style.top = (imageHeight * 0.18) + "px";
+            detailButton.style.width = (imageWidth * 0.18) + "px";
+
+            demoButton.style.left = (imageWidth * 0.32) + "px";
+            demoButton.style.top = (imageHeight * 0.18) + "px";
+            demoButton.style.width = (imageWidth * 0.18) + "px";
+
+            gotopButton.style.left = (imageWidth * 0.5) + "px";
+            gotopButton.style.top = (imageHeight * 0.96) + "px";
+            gotopButton.style.width = (imageWidth * 0.15) + "px";
+            gotopButton.style.transform = "translate(-50%, -50%)";
+        }
+
+        // 창 크기가 변경될 때마다 버튼 위치 조정
+        window.addEventListener("resize", positionButtons);
+
+        // 페이지 로딩 시 버튼 위치 조정
+        window.addEventListener("load", positionButtons);
+
+        // 스크롤 맨 위로 이동하는 함수
         function slowScrollToTop() {
             const scrollContainer = document.getElementById("scrollContainer");
             let scrollStep = 1;
@@ -83,10 +90,12 @@
             }, interval);
         }
 
+        // 상세 페이지로 이동
         function navigateToDetailPage() {
             window.location.href = "DetailPage.html";
         }
 
+        // 데모 페이지로 이동
         function navigateToDemoPage() {
             window.location.href = "https://team-realize.github.io/Scent_Landing/";
         }
