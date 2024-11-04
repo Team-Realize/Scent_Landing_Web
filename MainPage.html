@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        .scroll-container {
+            overflow: auto;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        img {
+            display: block;
+            border: none;
+            width: 100%;
+        }
+
+        .detail-button {
+            position: absolute;
+            top: 75%;
+            left: 12%;
+            cursor: pointer;
+            width: 18%;
+        }
+
+        .demo-button {
+            position: absolute;
+            top: 75%;
+            left: 32%;
+            cursor: pointer;
+            width: 18%;
+        }
+
+        .gotop-button {
+            position: absolute;
+            top: 395%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            width: 12%;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container" id="scrollContainer">
+        <img src="scent 랜딩페이지.jpg" alt="Background Image" />
+
+        <img src="scent 랜딩페이지 자세히 보기 버튼.jpg" class="detail-button" alt="Detail Button" onclick="navigateToDetailPage()" />
+        <img src="scent 랜딩페이지 데모 실행 버튼.jpg" class="demo-button" alt="Demo Button" onclick="navigateToDemoPage()" />
+        
+        <img src="scent 랜딩페이지 위로 가기 버튼.png" class="gotop-button" alt="GoTop Button" onclick="slowScrollToTop()" />
+    </div>
+
+    <script>
+        history.pushState(null, null, location.href);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, location.href);
+        });
+        
+        function slowScrollToTop() {
+            const scrollContainer = document.getElementById("scrollContainer");
+            let scrollStep = 1;
+            const interval = 20;
+
+            const scrollInterval = setInterval(() => {
+                if (scrollContainer.scrollTop > 0) {
+                    scrollContainer.scrollTop -= scrollStep;
+                    scrollStep += 2;
+                } else {
+                    clearInterval(scrollInterval);
+                }
+            }, interval);
+        }
+
+        function navigateToDetailPage() {
+            window.location.href = "DetailPage.html";
+        }
+
+        function navigateToDemoPage() {
+            window.location.href = "https://team-realize.github.io/Scent_Landing/";
+        }
+    </script>
+</body>
+</html>
