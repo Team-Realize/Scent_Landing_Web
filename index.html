@@ -1,94 +1,256 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scent</title>
+    <title>Scent Combined Page</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            overflow: auto;
             height: 100%;
             width: 100%;
+            font-family: Arial, sans-serif;
         }
 
-        .scroll-container {
-            overflow: auto;
-            width: 100vw;
-            height: 100vh;
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('scent 랜딩페이지 배경.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             position: relative;
+            width: 100vw;
         }
 
-        .background-image {
-            display: block;
-            border: none;
+        .row-content-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            transition: padding 0.3s ease;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: auto;
+            height: auto;
+            gap: 30px;
+            margin-left: 15%;
+        }
+
+        .left-section img {
+            width: 350px;
+            max-width: 70%;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .buttons img {
+            width: 250px;
+            max-width: 50%;
+            cursor: pointer;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: auto;
+            margin-right: 15%;
+        }
+
+        .right-section img {
+            width: 450px;
+            max-width: 70%;
+        }
+
+        .content-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .second-title-image {
+            width: 1400px;
+            max-width: 90%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .title-image {
+            width: 500px;
+            max-width: 50%;
+            height: auto;
+            margin-top: 2%;
+            transition: transform 0.3s ease;
+        }
+
+        .sections {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 2%;
+            gap: 20px;
+        }
+
+        .section {
+            flex: 1 1 30%;
+            max-width: 400px;
+        }
+
+        .section img {
             width: 100%;
             height: auto;
         }
 
-        .button {
-            position: absolute;
-            cursor: pointer;
+        @media (max-width: 900px) {
+            .section {
+                flex: 1 1 45%;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .row-content-container {
+                width: auto;
+                height: auto;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .right-section {
+                order: 1;
+                margin-top: 2%;
+                margin-right: 0;
+            }
+
+            .left-section {
+                order: 2;
+                gap: 10px;
+                margin-left: 0;
+            }
+
+            .left-section img {
+                width: 200px;
+                max-width: 70%;
+            }
+
+            .right-section img {
+                width: 300px;
+                max-width: 70%;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 5%;
+            }
+
+            .buttons img {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                flex: 1 1 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="scroll-container" id="scrollContainer">
-        <img src="scent 랜딩페이지.jpg" class="background-image" id="backgroundImage" alt="Background Image" />
-        <img src="scent 랜딩페이지 자세히 보기 버튼.jpg" class="button" id="detailButton" alt="Detail Button" onclick="navigateToDetailPage()" />
-        <img src="scent 랜딩페이지 데모 실행 버튼.jpg" class="button" id="demoButton" alt="Demo Button" onclick="navigateToDemoPage()" />
-        <img src="scent 랜딩페이지 위로 가기 버튼.png" class="button" id="gotopButton" alt="GoTop Button" onclick="slowScrollToTop()" />
+    <div class="background-container"></div>
+
+    <div class="page-container">
+        <!-- 첫번째 페이지 -->
+        <div class="row-content-container">
+            <div class="left-section" id="leftSection">
+                <img src="scent 랜딩페이지 새로운 꽃배달 플랫폼을 경험해 보세요.jpg" alt="Experience the new flower delivery platform" />
+                <img src="scent 랜딩페이지 Send Your Scent.jpg" alt="Send Your Scent" />
+                <img src="scent 랜딩페이지 타이틀.jpg" alt="Title" />
+                <div class="buttons">
+                    <img src="scent 랜딩페이지 자세히 보기 버튼.jpg" alt="Learn More Button" onclick="navigateToDetailPage()" />
+                    <img src="scent 랜딩페이지 데모 실행 버튼.jpg" alt="Run Demo Button" onclick="navigateToDemoPage()" />
+                </div>
+            </div>
+
+            <div class="right-section" id="rightSection">
+                <img src="scent 랜딩페이지 휴대폰.jpg" alt="Cell Phone" />
+            </div>
+        </div>
+        <!-- 두번째 페이지 -->
+        <div class="content-container">
+            <img src="scent 랜딩페이지 사랑하는 사람에게 나만의 꽃을 선물하세요.jpg" alt="Second Page Title Image" class="second-title-image" />
+        </div>
+        <!-- 세번째 페이지 -->
+        <div class="content-container">
+            <img src="scent 랜딩페이지 나만의 꽃을 쉽고 간편하게.jpg" alt="Third Page Title Image" class="title-image" />
+            <div class="sections">
+                <div class="section">
+                    <img src="scent 랜딩페이지 needs 1.jpg" alt="Needs Section" />
+                </div>
+                <div class="section">
+                    <img src="scent 랜딩페이지 easy 1.jpg" alt="Easy Section" />
+                </div>
+                <div class="section">
+                    <img src="scent 랜딩페이지 fast 1.jpg" alt="Special Section" />
+                </div>
+            </div>
+        </div>
+        <!-- 네번째 페이지 -->
+        <div class="content-container" style="margin-top: 50px;">
+            <img src="scent 랜딩페이지 나만의 꽃을 쉽고 간편하게.jpg" alt="Fourth Page Title Image" class="title-image" />
+            <div class="sections">
+                <div class="section">
+                    <img src="scent 랜딩페이지 needs 1.jpg" alt="Needs Section" />
+                </div>
+                <div class="section">
+                    <img src="scent 랜딩페이지 easy 1.jpg" alt="Easy Section" />
+                </div>
+                <div class="section">
+                    <img src="scent 랜딩페이지 fast 1.jpg" alt="Special Section" />
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // 초기 버튼 위치를 설정하는 함수
-        function positionButtons() {
-            const backgroundImage = document.getElementById("backgroundImage");
-            const detailButton = document.getElementById("detailButton");
-            const demoButton = document.getElementById("demoButton");
-            const gotopButton = document.getElementById("gotopButton");
-
-            // 배경 이미지의 크기에 맞춰 버튼 위치를 조정
-            const imageWidth = backgroundImage.clientWidth;
-            const imageHeight = backgroundImage.clientHeight;
-
-            // 비율에 따라 위치 설정
-            detailButton.style.left = (imageWidth * 0.12) + "px";
-            detailButton.style.top = (imageHeight * 0.18) + "px";
-            detailButton.style.width = (imageWidth * 0.18) + "px";
-
-            demoButton.style.left = (imageWidth * 0.32) + "px";
-            demoButton.style.top = (imageHeight * 0.18) + "px";
-            demoButton.style.width = (imageWidth * 0.18) + "px";
-
-            gotopButton.style.left = (imageWidth * 0.5) + "px";
-            gotopButton.style.top = (imageHeight * 0.96) + "px";
-            gotopButton.style.width = (imageWidth * 0.15) + "px";
-            gotopButton.style.transform = "translate(-50%, -50%)";
-        }
-
-        // 창 크기가 변경될 때마다 버튼 위치 조정
-        window.addEventListener("resize", positionButtons);
-
-        // 페이지 로딩 시 버튼 위치 조정
-        window.addEventListener("load", positionButtons);
-
-        // 스크롤 맨 위로 이동하는 함수
-        function slowScrollToTop() {
-            const scrollContainer = document.getElementById("scrollContainer");
-            let scrollStep = 1;
-            const interval = 20;
-
-            const scrollInterval = setInterval(() => {
-                if (scrollContainer.scrollTop > 0) {
-                    scrollContainer.scrollTop -= scrollStep;
-                    scrollStep += 2;
-                } else {
-                    clearInterval(scrollInterval);
-                }
-            }, interval);
-        }
+        document.addEventListener('scroll', function() {
+            const titleImages = document.querySelectorAll('.title-image');
+            const scale = 1 + (window.scrollY / 1000);
+            titleImages.forEach(image => {
+                image.style.transform = `scale(${scale})`;
+            });
+        });
 
         // 상세 페이지로 이동
         function navigateToDetailPage() {
