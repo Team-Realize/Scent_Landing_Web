@@ -222,16 +222,15 @@
         @media (max-width: 520px) {
             .buttons img{
                 margin-bottom: 0;
-                width: 300px;
+                width: 150px;
             }
             .buttons {
-                flex-direction: column; /* 세로 배치 */
                 align-items: center; /* 중앙 정렬 */
             }
             .brand-name {
                 align-items: end;
                 font-size: 120px;
-                width: 300px;
+                width: 310px;
                 margin-top: 20px;
             }
             .brand-name span {
@@ -239,18 +238,34 @@
             }
             .title {
                 display: none;
-                width: 300px;
+                width: 310px;
             }
             .subtitle {
                 align-items: center;
-                width: 300px;
+                width: 310px;
                 font-size: 30px;
-            }
-            .buttons img:first-child {
-                display: none; /* 두 번째 버튼 숨기기 */
             }
             .subtitle span{
                 font-size: 18px;
+            }
+            .quote {
+                font-size: 24px !important;
+                margin-top: 30px !important;
+            }
+            .description {
+                font-size: 18px !important;
+                margin: 30px 0 !important;
+            }
+            .mobile-text {
+                display: block !important;
+                white-space: nowrap;
+            }
+            .desktop-text{
+                display: none !important;
+
+            }
+            .extra-light{
+                font-size: 18px !important;
             }
         }
 
@@ -369,7 +384,12 @@
                     <img src="logo_red.png" alt="Flower Icon" />
                 </div>
                 <div class="buttons">
-                    <img src="detail_button.png" alt="Learn More Button" onclick="scrollToDetailPage()" />
+                    <picture>
+                        <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
+                        <source srcset="detail_button_long.png" media="(max-width: 520px)">
+                        <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
+                        <img src="detail_button.png" alt="Learn More Button" onclick="scrollToDetailPage()" />
+                    </picture>
                     <picture>
                         <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
                         <source srcset="demo_button_long.png" media="(max-width: 520px)">
@@ -392,15 +412,29 @@
         <div class="content-container" id="target-section">
             <img src="Mark.png" alt="따옴표 쌍" class="quote-image">
             <div class="quote">
-                사랑하는 <wbr>사람에게<br>
-                나만의 꽃을 <wbr>선물하세요
+                사랑하는 사람에게<br>
+                나만의 꽃을 선물하세요
             </div>
             <div class="description">
-                Scent는 3D 모델링과<wbr> AI를 활용하여 <br>
-                <span>맞춤형 꽃다발을 주문/제작</span>할 수 있는 솔루션을 제공합니다.<br><br>
-                소비자에게는 <span>초개인화된 구매 경험</span>과 <span>합리적인 가격</span>을<br>
-                생산자에게는 <span>신속한 배송 시스템</span>과 <br>
-                <span>효율적인 주문 관리 창구</span>를 제공합니다.
+                <!-- 데스크톱 버전 텍스트 -->
+                <div class="desktop-text">
+                    Scent는 3D 모델링과 AI를 활용하여 <br>
+                    <span>맞춤형 꽃다발을 주문/제작</span>할 수 있는 솔루션을 제공합니다.<br><br>
+                    소비자에게는 <span>초개인화된 구매 경험</span>과 <span>합리적인 가격</span>을<br>
+                    생산자에게는 <span>신속한 배송 시스템</span>과 <br>
+                    <span>효율적인 주문 관리 창구</span>를 제공합니다.
+                </div>
+
+                <!-- 모바일 버전 텍스트 -->
+                <div class="mobile-text" style="display: none">
+                    Scent는 3D 모델링과 AI를 활용하여<br>
+                    <span>맞춤형 꽃다발을 주문/제작</span>할 수 있는<br>
+                    솔루션을 제공합니다.<br><br>
+                    소비자에게는 <span>초개인화된 구매 경험</span>과<br>
+                    <span>합리적인 가격</span>을<br>
+                    생산자에게는 <span>신속한 배송 시스템</span>과<br>
+                    <span>효율적인 주문 관리 창구</span>를 제공합니다.
+                </div>
             </div>
 
         </div>
