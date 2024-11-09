@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scent Combined Page</title>
+
+    <!-- Pretendard 폰트 CDN 링크 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
     <style>
         body, html {
             margin: 0;
@@ -12,7 +16,7 @@
             overflow: auto;
             height: 100%;
             width: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 설정 */
         }
 
         .background-container {
@@ -33,7 +37,8 @@
             align-items: center;
             text-align: center;
             position: relative;
-            width: 100vw;
+            width: calc(100vw - 100px);
+            margin: 0 50px;
         }
 
         .row-content-container {
@@ -88,12 +93,12 @@
 
         .content-container {
             width: 100%;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            position: relative;
         }
 
         .second-title-image {
@@ -118,8 +123,8 @@
             align-items: center;
             width: 100%;
             max-width: 1200px;
-            margin-top: 2%;
             gap: 20px;
+            margin: 40px 0;
         }
 
         .section {
@@ -141,7 +146,6 @@
         @media (max-width: 720px) {
             .row-content-container {
                 width: auto;
-                height: auto;
                 flex-direction: column;
                 justify-content: center;
                 gap: 20px;
@@ -185,6 +189,56 @@
                 flex: 1 1 90%;
             }
         }
+
+        .divider{
+            width: 800px;
+        }
+
+        .divider-image {
+            width: 100%;
+            opacity: 20%;
+        }
+
+        /* .quote 폰트 스타일 */
+        .quote {
+            font-size: 48px;
+            font-weight: bold;
+            color: #7B544C;
+            margin-top: 80px;
+            line-height: 1.2;
+            letter-spacing: -0.32px; /* 글자 간격 설정 */
+        }
+
+        /* .description 폰트 스타일 */
+        .description {
+            font-size: 28px;
+            font-weight: 400;
+            color: #545454;
+            margin-top: 80px;
+            margin-bottom: 80px;
+            line-height: 1.2;
+            letter-spacing: -0.32px; /* 글자 간격 설정 */
+        }
+
+        .description span {
+            font-weight: bold; /* 강조된 텍스트를 굵게 */
+        }
+
+        /* 따옴표 쌍 이미지 스타일 */
+        .quote-image {
+            position: absolute;
+            width: 500px; /* 이미지 크기 조절 */
+            height: auto;
+            top: 80px;
+        }
+
+        /* 영어 부분을 Extra Light로 설정 */
+        .quote .extra-light {
+            font-weight: 200; /* Extra Light Pretendard */
+            font-size: 28px;
+            color: #000000;
+        }
+
     </style>
 </head>
 <body>
@@ -204,16 +258,41 @@
             </div>
 
             <div class="right-section" id="rightSection">
-                <img src="scent 랜딩페이지 휴대폰.jpg" alt="Cell Phone" />
+                <img src="scent 랜딩페이지 휴대폰.png" alt="Cell Phone" />
             </div>
         </div>
+
+        <div class="divider">
+            <img src="Divider.png" alt="Divider" class="divider-image">
+        </div>
+
         <!-- 두번째 페이지 -->
         <div class="content-container">
-            <img src="scent 랜딩페이지 사랑하는 사람에게 나만의 꽃을 선물하세요.jpg" alt="Second Page Title Image" class="second-title-image" />
+            <img src="Mark.png" alt="따옴표 쌍" class="quote-image">
+            <div class="quote">
+                사랑하는 사람에게<br>
+                나만의 꽃을 선물하세요
+            </div>
+            <div class="description">
+                Scent는 3D 모델링과 AI를 활용하여 <br>
+                <span>맞춤형 꽃다발을 주문/제작</span>할 수 있는 솔루션을 제공합니다.<br><br>
+                소비자에게는 <span>초개인화된 구매 경험</span>과 <span>합리적인 가격</span>을<br>
+                생산자에게는 <span>신속한 배송 시스템</span>과 <br>
+                <span>효율적인 주문 관리 창구</span>를 제공합니다.
+            </div>
+
         </div>
+
+        <div class="divider">
+            <img src="Divider.png" alt="Divider" class="divider-image">
+        </div>
+
         <!-- 세번째 페이지 -->
         <div class="content-container">
-            <img src="scent 랜딩페이지 나만의 꽃을 쉽고 간편하게.jpg" alt="Third Page Title Image" class="title-image" />
+            <div class="quote">
+                나만의 꽃을 쉽고 간편하게<br>
+                <span class="extra-light">Discover Your Own Scent</span>
+            </div>
             <div class="sections">
                 <div class="section">
                     <img src="scent 랜딩페이지 needs 1.jpg" alt="Needs Section" />
@@ -227,8 +306,11 @@
             </div>
         </div>
         <!-- 네번째 페이지 -->
+        <div class="divider">
+            <img src="Divider.png" alt="Divider" class="divider-image">
+        </div>
+
         <div class="content-container" style="margin-top: 50px;">
-            <img src="scent 랜딩페이지 나만의 꽃을 쉽고 간편하게.jpg" alt="Fourth Page Title Image" class="title-image" />
             <div class="sections">
                 <div class="section">
                     <img src="scent 랜딩페이지 needs 1.jpg" alt="Needs Section" />
