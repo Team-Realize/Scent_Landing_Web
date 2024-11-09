@@ -92,17 +92,16 @@
 
         .left-section img {
             width: 350px;
-            max-width: 70%;
         }
 
         .buttons {
             display: flex;
             gap: 10px;
+            margin-top: 50px;
         }
 
         .buttons img {
-            width: 250px;
-            max-width: 50%;
+            width: 200px;
             cursor: pointer;
         }
 
@@ -173,7 +172,7 @@
 
             .right-section {
                 order: 1;
-                margin-top: 2%;
+                margin-top: 200px;
                 margin-right: 0;
             }
 
@@ -186,7 +185,6 @@
 
             .left-section img {
                 width: 200px;
-                max-width: 70%;
             }
 
             .right-section img {
@@ -197,11 +195,58 @@
             .buttons {
                 display: flex;
                 gap: 10px;
-                margin-bottom: 5%;
+                margin-bottom: 250px;
             }
 
             .buttons img {
-                width: 100px;
+                width: 200px;
+            }
+
+            .brand-name {
+                align-items: start;
+                width: 410px;
+            }
+            .title {
+                display: none;
+            }
+            .subtitle {
+                align-items: start;
+                width: 410px;
+            }
+
+            .buttons {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .buttons img{
+                margin-bottom: 0;
+                width: 300px;
+            }
+            .buttons {
+                flex-direction: column; /* 세로 배치 */
+                align-items: center; /* 중앙 정렬 */
+            }
+            .brand-name {
+                align-items: end;
+                font-size: 120px;
+                width: 300px;
+                margin-top: 20px;
+            }
+            .brand-name span {
+                font-size: 70px;
+            }
+            .title {
+                display: none;
+                width: 300px;
+            }
+            .subtitle {
+                align-items: center;
+                width: 300px;
+            }
+            .buttons img:first-child {
+                display: none; /* 두 번째 버튼 숨기기 */
             }
         }
 
@@ -222,6 +267,7 @@
             margin-top: 80px;
             line-height: 1.2;
             letter-spacing: -0.32px; /* 글자 간격 설정 */
+            white-space: nowrap;
         }
 
         /* .description 폰트 스타일 */
@@ -271,11 +317,15 @@
         }
 
         .subtitle {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
             color: #545454;
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: -20px;
+            white-space: nowrap;
+        }
+        .subtitle span {
+            font-weight: 400; /* 강조된 텍스트를 굵게 */
         }
 
         .brand-name {
@@ -303,18 +353,23 @@
         <!-- 첫번째 페이지 -->
         <div class="row-content-container">
             <div class="left-section" id="leftSection">
-                <div class="title"><span>새로운 꽃배달 플랫폼을<wbr> 경험해 보세요</span></div>
+                <div class="title">새로운 꽃배달 플랫폼을<wbr> 경험해 보세요</div>
                 <div class="subtitle">
                     Send Your Scent<br>
-                    나를 위한 AI 커스텀 꽃다발 서비스
+                    <span>나를 위한 AI 커스텀<wbr> 꽃다발 서비스</span>
                 </div>
                 <div class="brand-name">
-                    Scent
+                    <span>Scent</span>
                     <img src="logo_red.png" alt="Flower Icon" />
                 </div>
                 <div class="buttons">
                     <img src="detail_button.png" alt="Learn More Button" onclick="scrollToDetailPage()" />
-                    <img src="demo_button.png" alt="Run Demo Button" onclick="navigateToDemoPage()" />
+                    <picture>
+                        <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
+                        <source srcset="demo_button_long.png" media="(max-width: 520px)">
+                        <!-- 기본 이미지 (큰 화면에서는 이 이미지를 사용) -->
+                        <img src="demo_button.png" alt="Run Demo Button" onclick="navigateToDemoPage()">
+                    </picture>
                 </div>
             </div>
 
@@ -331,11 +386,11 @@
         <div class="content-container" id="target-section">
             <img src="Mark.png" alt="따옴표 쌍" class="quote-image">
             <div class="quote">
-                사랑하는 사람에게<br>
-                나만의 꽃을 선물하세요
+                사랑하는 <wbr>사람에게<br>
+                나만의 꽃을 <wbr>선물하세요
             </div>
             <div class="description">
-                Scent는 3D 모델링과 AI를 활용하여 <br>
+                Scent는 3D 모델링과<wbr> AI를 활용하여 <br>
                 <span>맞춤형 꽃다발을 주문/제작</span>할 수 있는 솔루션을 제공합니다.<br><br>
                 소비자에게는 <span>초개인화된 구매 경험</span>과 <span>합리적인 가격</span>을<br>
                 생산자에게는 <span>신속한 배송 시스템</span>과 <br>
@@ -351,7 +406,7 @@
         <!-- 세번째 페이지 -->
         <div class="content-container">
             <div class="quote">
-                나만의 꽃을 쉽고 간편하게<br>
+                나만의 꽃을 <wbr>쉽고 간편하게<br>
                 <span class="extra-light">Discover Your Own Scent</span>
             </div>
             <div class="sections">
