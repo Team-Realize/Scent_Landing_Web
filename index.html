@@ -19,6 +19,10 @@
             overflow: hidden; /* 세로 스크롤만 활성화 */
         }
 
+        body {
+            display: none;
+        }
+
         /* 스크롤 영역을 지정할 내부 컨테이너 */
         .scroll-container {
             position: relative;
@@ -489,6 +493,12 @@
     </div>
 
     <script>
+        window.addEventListener("load", function() {
+            // 모든 리소스 로드 후 body 표시
+            document.body.style.display = "block";
+            console.log("모든 리소스가 로드되었습니다.");
+        });
+
         document.addEventListener('scroll', function() {
             const titleImages = document.querySelectorAll('.title-image');
             const scale = 1 + (window.scrollY / 1000);
