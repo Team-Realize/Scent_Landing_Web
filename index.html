@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="logo_red.png" type="image/png">
+    <link rel="icon" href="Assets/Images/logo_red.png" type="image/png">
     <title>Send Your Scent</title>
 
     <!-- Pretendard 폰트 CDN 링크 -->
@@ -60,7 +60,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('scent 랜딩페이지 배경.jpg');
+            background-image: url('Assets/Images/scent 랜딩페이지 배경.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -393,36 +393,36 @@
                 </div>
                 <div class="brand-name">
                     <span>Scent</span>
-                    <img src="logo_red.png" alt="Flower Icon" />
+                    <img src="Assets/Images/logo_red.png" alt="Flower Icon" />
                 </div>
                 <div class="buttons">
                     <picture>
                         <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
-                        <source srcset="detail_button_long.png" media="(max-width: 520px)">
+                        <source srcset="Assets/Images/detail_button_long.png" media="(max-width: 520px)">
                         <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
-                        <img src="detail_button.png" alt="Learn More Button" onclick="scrollToDetailPage()" />
+                        <img src="Assets/Images/detail_button.png" alt="Learn More Button" onclick="scrollToDetailPage()" />
                     </picture>
                     <picture>
                         <!-- 화면 너비가 520px 이하일 때 작은 이미지 로드 -->
-                        <source srcset="demo_button_long.png" media="(max-width: 520px)">
+                        <source srcset="Assets/Images/demo_button_long.png" media="(max-width: 520px)">
                         <!-- 기본 이미지 (큰 화면에서는 이 이미지를 사용) -->
-                        <img src="demo_button.png" alt="Run Demo Button" onclick="navigateToDemoPage()">
+                        <img src="Assets/Images/demo_button.png" alt="Run Demo Button" onclick="navigateToDemoPage()">
                     </picture>
                 </div>
             </div>
 
             <div class="right-section" id="rightSection">
-                <img src="scent 랜딩페이지 휴대폰.png" alt="Cell Phone" />
+                <img src="Assets/Images/scent 랜딩페이지 휴대폰.png" alt="Cell Phone" />
             </div>
         </div>
 
         <div class="divider">
-            <img src="Divider.png" alt="Divider" class="divider-image">
+            <img src="Assets/Images/Divider.png" alt="Divider" class="divider-image">
         </div>
 
         <!-- 두번째 페이지 -->
         <div class="content-container" id="target-section">
-            <img src="Mark.png" alt="따옴표 쌍" class="quote-image">
+            <img src="Assets/Images/Mark.png" alt="따옴표 쌍" class="quote-image">
             <div class="quote">
                 사랑하는 사람에게<br>
                 나만의 꽃을 선물하세요
@@ -452,7 +452,7 @@
         </div>
 
         <div class="divider">
-            <img src="Divider.png" alt="Divider" class="divider-image">
+            <img src="Assets/Images/Divider.png" alt="Divider" class="divider-image">
         </div>
 
         <!-- 세번째 페이지 -->
@@ -463,19 +463,19 @@
             </div>
             <div class="sections">
                 <div class="section">
-                    <img src="Fit.png" alt="Fit" />
+                    <img src="Assets/Images/Fit.png" alt="Fit" />
                 </div>
                 <div class="section">
-                    <img src="Easy.png" alt="Easy" />
+                    <img src="Assets/Images/Easy.png" alt="Easy" />
                 </div>
                 <div class="section">
-                    <img src="Special.png" alt="Special" />
+                    <img src="Assets/Images/Special.png" alt="Special" />
                 </div>
             </div>
         </div>
         <!-- 네번째 페이지 -->
         <div class="divider">
-            <img src="Divider.png" alt="Divider" class="divider-image">
+            <img src="Assets/Images/Divider.png" alt="Divider" class="divider-image">
         </div>
 
         <div class="content-container">
@@ -490,14 +490,14 @@
                     <img src="Anywhere.png" alt="Anywhere" />
                 </div>
                 <div class="section">
-                    <img src="Price.png" alt="Price" />
+                    <img src="Assets/Images/Price.png" alt="Price" />
                 </div>
                 <div class="section">
-                    <img src="Fast.png" alt="Fast" />
+                    <img src="Assets/Images/Fast.png" alt="Fast" />
                 </div>
             </div>
         </div>
-        <img class="icon-up" src="up_icon.png" alt="Up" onclick="scrollToTop()" />
+        <img class="icon-up" src="Assets/Images/up_icon.png" alt="Up" onclick="scrollToTop()" />
     </div>
     </div>
 
@@ -532,7 +532,6 @@
         }
 
         function scrollToTop() {
-            console.log("sdd")
             const target = document.getElementById("main-section");
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
